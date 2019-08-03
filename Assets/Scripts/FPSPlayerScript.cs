@@ -7,6 +7,7 @@ public class FPSPlayerScript : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject pov;
+    public GameObject bombObject;
 
     public float walkSpeed = 15.0F;
     public float sprintSpeed = 150.0F;
@@ -18,6 +19,10 @@ public class FPSPlayerScript : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+
+        if(!rb) Debug.LogError("Could not find Rigidbody", this);
+        if (!pov) Debug.LogError("Could not find POV", this);
+        if (!bombObject) Debug.LogError("Could not find BombObject", this);
     }
 
     void Update()
@@ -28,6 +33,7 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void CheckSetBomb()
     {
+        // Click to set bomb on surface
         throw new NotImplementedException();
     }
 
@@ -55,7 +61,7 @@ public class FPSPlayerScript : MonoBehaviour
     private void ApplyXMouseRotation()
     {
         float xSwivelSpeed = xMouseSensitivity * Time.deltaTime;
-        rb.AddRelativeTorque(0, Input.GetAxisRaw("Mouse X") * xSwivelSpeed, 0);
+        this.transform.Rotate(0, Input.GetAxisRaw("Mouse X") * xSwivelSpeed, 0);
     }
 
     private void CheckRightStrafe()
