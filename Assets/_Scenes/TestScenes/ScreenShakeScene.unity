@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!20 &345659072 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4776867308657482716, guid: ff2c54b44c559b4428314dc8e1a33235,
-    type: 3}
-  m_PrefabInstance: {fileID: 1082983623}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &620245654
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,56 +439,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: shakiness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: attachedCamera
-      value: 
-      objectReference: {fileID: 345659072}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: duration
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: initialJoltDuration
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: initialJoltIntensity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: shakeDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: shakeIntensity
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: aftershockDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: aftershockIntensity
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 318106407722160657, guid: ff2c54b44c559b4428314dc8e1a33235,
-        type: 3}
-      propertyPath: shakeIntensityDropoff
-      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2c54b44c559b4428314dc8e1a33235, type: 3}
