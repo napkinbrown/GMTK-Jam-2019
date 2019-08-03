@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 2669340886579157458, guid: 08e540ec32957904d9b1a78d2ed1c0e9,
         type: 3}
       propertyPath: shakeDuration
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2669340886579157458, guid: 08e540ec32957904d9b1a78d2ed1c0e9,
         type: 3}
@@ -420,7 +420,7 @@ PrefabInstance:
     - target: {fileID: 2669340886579157458, guid: 08e540ec32957904d9b1a78d2ed1c0e9,
         type: 3}
       propertyPath: shakeIntensityDropoff
-      value: 0.05
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e540ec32957904d9b1a78d2ed1c0e9, type: 3}
