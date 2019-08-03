@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject carManager;
+    private GameObject carManager;
     public int score;
     public Text scoreObject;
     public bool bombExploded;
@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        carManager = GameObject.FindGameObjectWithTag("CarManager");
         //scoreObject = GetComponent<T
         score = 0;
         bombExploded = false;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator MoveCar()
     {
-        while (true) {
+        while (!bombExploded) {
             yield return new WaitForSeconds(5);
             carManager.GetComponent<CarManager>().MoveToNextCheckpoint();
         }
@@ -43,5 +44,7 @@ public class GameManager : MonoBehaviour
     public void onBombExploadEvent()
     {
         bombExploded = true; // Don't know if this is necessary?
+        GameObject.FindGameObjectWithTag("CarManager").GetComponent<CarManager>().explode = true;
+        GameObject.FindGameObjectWithTag("CarManager").GetComponent<CarManager>().OnExplode();
     }
 }

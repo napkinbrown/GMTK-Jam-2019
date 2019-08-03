@@ -6,6 +6,9 @@ TagManager:
   tags:
   - GameManager
   - Bomb
+  - Block
+  - Car Parts
+  - CarManager
   layers:
   - Default
   - TransparentFX

@@ -43,24 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44286ab429ad4125a6e3fae5257ac52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreObject: {fileID: 0}
-  countdownText: {fileID: 0}
-  explode:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Explode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  carManager: {fileID: 0}
   score: 0
-  timeLeft: 60
-  bombExploded: 0
+  scoreObject: {fileID: 0}
+  bombExploded: 1

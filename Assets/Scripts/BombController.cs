@@ -25,7 +25,9 @@ public class BombController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && !hasExploaded)
         {
+            Debug.Log("I was pressed!");
             Explode();
+            
         }
     }
 
@@ -43,6 +45,7 @@ public class BombController : MonoBehaviour
             if (rb != null)
                 rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
         }
+
     }
 
     public void onBombPickup()

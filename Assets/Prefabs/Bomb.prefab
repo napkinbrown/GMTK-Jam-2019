@@ -122,9 +122,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< Updated upstream
       - m_Target: {fileID: 2669340886579157458, guid: 08e540ec32957904d9b1a78d2ed1c0e9,
           type: 3}
         m_MethodName: onExplosionEvent
+=======
+      - m_Target: {fileID: 7836428565296595479, guid: cea8234e841e24d11bc4e88088a180f3,
+          type: 3}
+        m_MethodName: OnExplode
+>>>>>>> Stashed changes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

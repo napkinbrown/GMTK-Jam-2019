@@ -15,7 +15,13 @@ public class ExplodeObjectScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parentTower = transform.parent.gameObject;
+        if(parentTower) 
+        {
+            parentTower = transform.parent.gameObject;
+        } else {
+            Debug.LogError("ParentTower not attached", this);
+        }
+        
         scored = false;
         //score.Invoke(this.gameObject);
         GameObject gmObject = GameObject.FindGameObjectWithTag("GameManager");

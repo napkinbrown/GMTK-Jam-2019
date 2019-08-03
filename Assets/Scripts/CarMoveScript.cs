@@ -12,11 +12,21 @@ public class CarMoveScript : MonoBehaviour {
         // Movement speed in units/sec.
         public float speed = 5.0F;
         public float rotateSpeed = 0.1F;
+       // public GameObject gm;
+        private GameManager gameManager;
+        public bool exploded;
 
         void Start()
         {
+            GameObject gmObject = GameObject.FindGameObjectWithTag("GameManager");
+            GameObject carParts = GameObject.FindGameObjectWithTag("Car Parts");
+            if (gmObject != null)
+                gameManager = gmObject.GetComponent<GameManager>();
+            else
+            Debug.Log("Could not find game manager!");
             nextPoint = GameObject.Find("Checkpoint 1").transform;
             transform.LookAt(nextPoint.position);
+            exploded = false;
         }
         
         public void SetNextPoint(Transform checkpoint) {
@@ -28,8 +38,10 @@ public class CarMoveScript : MonoBehaviour {
         // Follows the target position like with a spring
         void Update()
         {
-            if (nextPoint == null)
+            if (nextPoint == null || exploded) {
+                Debug.Log("Ending car movement");
                 return;
+            }
             float step = speed * Time.deltaTime;
 
             // Move our position a step closer to the target.
