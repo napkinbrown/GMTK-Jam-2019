@@ -8,13 +8,15 @@ public class CarMoveScript : MonoBehaviour {
 
 	// Transforms to act as start and end markers for the journey.
         private Transform nextPoint;
+        private Vector3 startPoint;
 
         // Movement speed in units/sec.
-        public float speed = 5.0F;
+        public float speed = 5.0F, delay = 1.0F;
         public float rotateSpeed = 0.1F;
        // public GameObject gm;
         private GameManager gameManager;
-        public bool exploded;
+        private GameObject player;
+        public bool exploded, ready;
 
         void Start()
         {
@@ -24,40 +26,71 @@ public class CarMoveScript : MonoBehaviour {
                 gameManager = gmObject.GetComponent<GameManager>();
             else
             Debug.Log("Could not find game manager!");
-            nextPoint = GameObject.Find("Checkpoint 1").transform;
-            transform.LookAt(nextPoint.position);
+            nextPoint = transform.parent.GetChild(1);
+            //transform.LookAt(nextPoint.position);
             exploded = false;
+            ready = false;
+            startPoint = this.transform.position;
+
+            StartCoroutine(startDriving(delay));
+        }
+
+        IEnumerator startDriving(float delay) {
+            
+            yield return new WaitForSeconds(delay);
+
+            ready = true;
+
+        }
+
+        void OnTriggerEnter(Collider collider) {
+            ready = false;
+        }
+
+        void OnTriggerExit(Collider collider) {
+            StartCoroutine(startDriving(1));
         }
         
         public void SetNextPoint(Transform checkpoint) {
             Debug.Log("Cam: Setting next point to " + checkpoint.name);
-            nextPoint = checkpoint;
+            //nextPoint = checkpoint;
             //transform.LookAt(nextPoint.position);
         }
 
         // Follows the target position like with a spring
         void Update()
         {
-            if (nextPoint == null || exploded) {
-                Debug.Log("Ending car movement");
+            
+            player = GameObject.FindGameObjectWithTag("Player");
+            float distToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+            // GameObject[] cars = GameObject.FindGameObjectsWithTag("Car");
+
+            // foreach(GameObject car in cars) {
+            //     float distToCar = Vector3.Distance(car.transform.position, transform.position);
+            //     if (distToCar < 0.1F) {
+            //         Debug.Log("Distance to car " + distToCar);
+            //         return;
+            //     }
+            // }
+
+            if (distToPlayer < 5)
+                return;
+
+            if (nextPoint == null || exploded || !ready) {
+                Debug.Log("Halting car movement");
                 return;
             }
             float step = speed * Time.deltaTime;
 
-        //     // Move our position a step closer to the target.
-        //     transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, step);
 
-        //    // if ((nextPoint.position - transform.position).magnitude <= 1) {
-
-        //         //create rotation
-        //         Quaternion wantedRotation = nextPoint.transform.rotation;
-    
-        //         //then rotate
-        //         transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.deltaTime * rotateSpeed);
-            
-        //     //}
              // Move the object forward along its z axis 1 unit/second.
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            float dist = Vector3.Distance(nextPoint.transform.position, transform.position);
+        
+            if (dist > 20)
+                transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            else
+                this.transform.position = startPoint;
 
         
         }
