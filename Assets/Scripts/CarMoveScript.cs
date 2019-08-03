@@ -17,6 +17,7 @@ public class CarMoveScript : MonoBehaviour {
         private GameManager gameManager;
         private GameObject player;
         public bool exploded, ready;
+        //public AudioSource audioSource;
 
         void Start()
         {
@@ -31,6 +32,7 @@ public class CarMoveScript : MonoBehaviour {
             exploded = false;
             ready = false;
             startPoint = this.transform.position;
+            //audioSource.Play();
 
             StartCoroutine(startDriving(delay));
         }

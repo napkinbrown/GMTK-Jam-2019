@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         carManagers = GameObject.FindGameObjectsWithTag("CarManager");
         score = 0;
         bombExploded = false;
