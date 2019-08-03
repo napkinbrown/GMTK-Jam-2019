@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2657757501309520254}
   - component: {fileID: 5859822567026545488}
   - component: {fileID: 1104775137327931521}
+  - component: {fileID: 5184283601271188488}
   - component: {fileID: 5762627328359192350}
   - component: {fileID: 479277819}
   m_Layer: 0
@@ -134,12 +135,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5184283601271188488}
+        m_MethodName: CreateExplosion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   explosionSound: {fileID: 479277819}
   hasExploaded: 0
   radius: 5
   power: 300
+--- !u!114 &5184283601271188488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8499971767997845343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba67a612cbfd2944c89e2a1373d49497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombTransform: {fileID: 4348197852973430975}
+  blastParticles:
+  - {fileID: 5083676613943104722, guid: 29c30fedc0f163549aeb85a7dbae9858, type: 3}
+  - {fileID: 167611802330607812, guid: dc8069e416569cf48a1e2a8ca358824b, type: 3}
+  shockwaveParticles:
+  - {fileID: 2423425252418695704, guid: 2bc03da98113eb34190ecf9ac0a42a66, type: 3}
+  secondsUntilDestroy: 3
 --- !u!54 &5762627328359192350
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -228,9 +228,9 @@ MonoBehaviour:
   bombThrowable: {fileID: 8499971767997845343, guid: ec03aa79ec1531f4ba90a90c17dbbc95,
     type: 3}
   playerCamera: {fileID: 4776867308657482716}
-  walkSpeed: 75
-  sprintSpeed: 225
-  strafeSpeed: 100
+  walkSpeed: 5
+  sprintSpeed: 10
+  strafeSpeed: 5
   xMouseSensitivity: 150
   yMouseSensitivity: 75
   bombThrowForce: 150

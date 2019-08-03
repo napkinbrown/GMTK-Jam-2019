@@ -25,9 +25,7 @@ public class BombController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && !hasExploaded)
         {
-            Debug.Log("I was pressed!");
             Explode();
-            
         }
     }
 
@@ -35,6 +33,7 @@ public class BombController : MonoBehaviour
         hasExploaded = true;
         exploadEvent.Invoke();
         explosionSound.Play();
+
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
