@@ -21,8 +21,8 @@ public class ExplodeObjectScript : MonoBehaviour
         GameObject gmObject = GameObject.FindGameObjectWithTag("GameManager");
         if (gmObject != null)
             gm = gmObject.GetComponent<GameManager>();
-        else
-            Debug.Log("Could not find game manager!");
+        //else
+            //Debug.Log("Could not find game manager!");
         
     }
 

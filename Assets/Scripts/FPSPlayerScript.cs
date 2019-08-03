@@ -70,6 +70,7 @@ public class FPSPlayerScript : MonoBehaviour
         thrownBomb.GetComponent<Rigidbody>().AddRelativeForce(tossVector);
 
         pickedUpBombEvent.AddListener(thrownBomb.GetComponent<BombController>().onBombPickup);
+        thrownBomb.GetComponent<BombController>().exploadEvent.AddListener(camera.GetComponent<CameraShake>().onExplosionEvent);
 
         bombProp.SetActive(false);
         holdingBomb = false;

@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        //if (score)
-        scoreObject.text = score.ToString();
+        if (scoreObject)
+            scoreObject.text = score.ToString();
     }
 
     public void onScoreEvent(GameObject gameObject) {

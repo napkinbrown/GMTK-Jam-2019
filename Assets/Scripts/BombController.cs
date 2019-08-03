@@ -7,6 +7,10 @@ public class BombController : MonoBehaviour
 {
     public UnityEvent exploadEvent;
 
+    public AudioSource explosionSound;
+
+    public bool hasExploaded = false;
+
     public float radius = 5.0F;
     public float power = 10.0F;
 
@@ -19,14 +23,17 @@ public class BombController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && !hasExploaded)
         {
             Explode();
         }
     }
 
     private void Explode() {
+        hasExploaded = true;
         exploadEvent.Invoke();
+        explosionSound.Play();
+
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders)
