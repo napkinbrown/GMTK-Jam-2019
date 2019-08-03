@@ -30,7 +30,7 @@ public class CarManager : MonoBehaviour
         Transform nextCheckpoint = checkpointManager.GetComponent<CheckpointManager>().NextCheckpoint();
     
         Debug.Log("CamManager: Setting Camera Checkpoint");
-        if (!explode)
+        //if (!explode)
             car.GetComponent<CarMoveScript>().SetNextPoint(nextCheckpoint);
 
     }
