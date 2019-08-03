@@ -24,10 +24,12 @@ public class FPSPlayerScript : MonoBehaviour
     public float yMouseSensitivity = 10;
 
     public float bombThrowForce = 10.0F;
-
     public float tossMagnitude = 20.0F;
-
     public float bombGrabLength = 5.0f;
+    public float pickUpBombDelay = 1.0f;
+
+    private bool canPickUpBomb = true;
+
 
     void Start()
     {
@@ -61,7 +63,7 @@ public class FPSPlayerScript : MonoBehaviour
             {
                 ThrowBomb();
             }
-            else
+            else if (canPickUpBomb)
             {
                 TryPickingUpBomb();
             }
@@ -81,6 +83,7 @@ public class FPSPlayerScript : MonoBehaviour
 
         bombProp.SetActive(false);
         holdingBomb = false;
+        StartCoroutine(DelayEnablePickupBomb());
     }
 
     private void TryPickingUpBomb()
@@ -178,6 +181,13 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if(!HoldingMoveKey())
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
+    }
+
+    IEnumerator DelayEnablePickupBomb()
+    {
+        canPickUpBomb = false;
+        yield return new WaitForSeconds(pickUpBombDelay);
+        canPickUpBomb = true;
     }
 
 }

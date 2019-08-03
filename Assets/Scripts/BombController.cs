@@ -33,7 +33,7 @@ public class BombController : MonoBehaviour
         hasExploaded = true;
         exploadEvent.Invoke();
         explosionSound.Play();
-
+         
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
