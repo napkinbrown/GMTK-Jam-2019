@@ -9,6 +9,7 @@ public class FPSPlayerScript : MonoBehaviour
     public GameObject pov;
 
     public float walkSpeed = 15.0F;
+    public float sprintSpeed = 150.0F;
     public float strafeSpeed = 15.0F;
 
     public float xMouseSensitivity = 10;
@@ -85,7 +86,14 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddRelativeForce(Vector3.forward * walkSpeed);
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                rb.AddRelativeForce(Vector3.forward * sprintSpeed);
+            }
+            else
+            {
+                rb.AddRelativeForce(Vector3.forward * walkSpeed);
+            }
         }
     }
 }
