@@ -19,7 +19,7 @@ public class BombCameraShake : MonoBehaviour
     public void onExplosionEvent()
     {
         startPosition = attachedCamera.transform.localPosition;
-        StartCoroutine(cameraJolt());
+        this.StartCoroutine(cameraJolt());
     }
 
     IEnumerator cameraJolt()

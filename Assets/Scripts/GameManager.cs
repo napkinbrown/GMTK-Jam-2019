@@ -43,8 +43,8 @@ public class GameManager : MonoBehaviour
 
     public void onBombExploadEvent()
     {
-        bombExploded = true; // Don't know if this is necessary?
-        GameObject.FindGameObjectWithTag("CarManager").GetComponent<CarManager>().explode = true;
-        GameObject.FindGameObjectWithTag("CarManager").GetComponent<CarManager>().OnExplode();
+        //bombExploded = true; // Don't know if this is necessary?
+        //GameObject.FindGameObjectWithTag("CarManager").GetComponent<CarManager>().explode = true;
+        //GameObject.FindGameObjectWithTag("CarManager").GetComponent<CarManager>().OnExplode();
     }
 }
