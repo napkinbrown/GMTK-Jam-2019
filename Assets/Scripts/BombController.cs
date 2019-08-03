@@ -40,6 +40,9 @@ public class BombController : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders)
         {
+            if (hit.gameObject.tag == "Bomb")
+                continue;
+
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
             if (rb != null)

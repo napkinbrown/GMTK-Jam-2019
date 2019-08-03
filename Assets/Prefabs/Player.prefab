@@ -30,59 +30,6 @@ Transform:
   m_Father: {fileID: 1284832817906403145}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!1 &1998940146
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1998940147}
-  - component: {fileID: 1998940149}
-  - component: {fileID: 1998940148}
-  m_Layer: 0
-  m_Name: Stabilizer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1998940147
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998940146}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.006730318, y: -0.9224433, z: 0.10000014}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4776867309740912046}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1998940149
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998940146}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1998940148
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998940146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3933977028011627866
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +186,6 @@ Transform:
   m_Children:
   - {fileID: 4776867308999740895}
   - {fileID: 464908623571988303}
-  - {fileID: 1998940147}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -252,7 +198,7 @@ Rigidbody:
   m_GameObject: {fileID: 4776867309740912047}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 15
+  m_Drag: 5
   m_AngularDrag: 20
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -281,7 +227,7 @@ MonoBehaviour:
   bombProp: {fileID: 5875956617702740891}
   bombThrowable: {fileID: 8499971767997845343, guid: ec03aa79ec1531f4ba90a90c17dbbc95,
     type: 3}
-  camera: {fileID: 4776867308657482716}
+  playerCamera: {fileID: 4776867308657482716}
   walkSpeed: 75
   sprintSpeed: 225
   strafeSpeed: 100

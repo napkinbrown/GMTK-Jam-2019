@@ -12,7 +12,7 @@ public class FPSPlayerScript : MonoBehaviour
     public GameObject pov;
     public GameObject bombProp;
     public GameObject bombThrowable;
-    public Camera camera;
+    public Camera playerCamera;
 
     private bool holdingBomb = true;
 
@@ -38,12 +38,19 @@ public class FPSPlayerScript : MonoBehaviour
         if (!bombProp) Debug.LogError("Could not find BombObject", this);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         CheckPlayerMovement();
         InteractWithBomb();
+        StabilizePlayer();
+    }
 
-        // TODO: Check Detenate Bomb
+    private void StabilizePlayer()
+    {
+        Quaternion rot = rb.rotation;
+        rot[0] = 0; //null rotation X
+        rot[2] = 0; //null rotation Z
+        rb.rotation = rot;
     }
 
     private void InteractWithBomb()
@@ -70,7 +77,7 @@ public class FPSPlayerScript : MonoBehaviour
         thrownBomb.GetComponent<Rigidbody>().AddRelativeForce(tossVector);
 
         pickedUpBombEvent.AddListener(thrownBomb.GetComponent<BombController>().onBombPickup);
-        thrownBomb.GetComponent<BombController>().exploadEvent.AddListener(camera.GetComponent<BombCameraShake>().onExplosionEvent);
+        thrownBomb.GetComponent<BombController>().exploadEvent.AddListener(playerCamera.GetComponent<BombCameraShake>().onExplosionEvent);
 
         bombProp.SetActive(false);
         holdingBomb = false;
@@ -79,10 +86,10 @@ public class FPSPlayerScript : MonoBehaviour
     private void TryPickingUpBomb()
     {
         RaycastHit hitInfo;
-        Vector3 rayOrigin = camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+        Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
 
-        Debug.DrawRay(rayOrigin, camera.transform.forward);
-        if (Physics.Raycast(rayOrigin, camera.transform.forward, out hitInfo, bombGrabLength))
+        Debug.DrawRay(rayOrigin, playerCamera.transform.forward);
+        if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hitInfo, bombGrabLength))
         {
 
         }
@@ -101,6 +108,7 @@ public class FPSPlayerScript : MonoBehaviour
         CheckLeftStrafe();
         CheckRightStrafe();
         ApplyRotationFromMouse();
+        ApplyWalkingDrag();
     }
 
     private void ApplyRotationFromMouse()
@@ -125,7 +133,7 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddRelativeForce(Vector3.right * strafeSpeed);
+            rb.velocity = this.transform.right * strafeSpeed;
         }
     }
 
@@ -133,7 +141,7 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddRelativeForce(Vector3.left * strafeSpeed);
+            rb.velocity = this.transform.right * strafeSpeed  * -1;
         }
     }
 
@@ -141,22 +149,35 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddRelativeForce(Vector3.back * walkSpeed);
+            rb.velocity = this.transform.forward * walkSpeed * -1;
         }
     }
 
     private void CheckForwardMovement()
     {
+
         if (Input.GetKey(KeyCode.W))
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                rb.AddRelativeForce(Vector3.forward * sprintSpeed);
+                rb.velocity = this.transform.forward * sprintSpeed;
             }
             else
             {
-                rb.AddRelativeForce(Vector3.forward * walkSpeed);
+                rb.velocity = this.transform.forward * walkSpeed;
             }
         }
     }
+
+    private bool HoldingMoveKey()
+    {
+        return Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+    }
+
+    private void ApplyWalkingDrag()
+    {
+        if(!HoldingMoveKey())
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+    }
+
 }
