@@ -47,6 +47,7 @@ public class CarManager : MonoBehaviour
         Debug.Log("distance from bomb: " + dist);
         if (explode && dist < 50)
             carParts.GetComponent<CarPartsScript>().disableKinematics();
+        car.GetComponent<CarMoveScript>().exploded = true;
         Debug.Log("Expldode@!!! Done");
     }
 }

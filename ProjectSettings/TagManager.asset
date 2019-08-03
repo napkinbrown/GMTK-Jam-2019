@@ -9,6 +9,7 @@ TagManager:
   - Block
   - Car Parts
   - CarManager
+  - Car
   layers:
   - Default
   - TransparentFX
