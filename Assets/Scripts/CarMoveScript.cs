@@ -44,18 +44,21 @@ public class CarMoveScript : MonoBehaviour {
             }
             float step = speed * Time.deltaTime;
 
-            // Move our position a step closer to the target.
-            transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, step);
+        //     // Move our position a step closer to the target.
+        //     transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, step);
 
-           // if ((nextPoint.position - transform.position).magnitude <= 1) {
+        //    // if ((nextPoint.position - transform.position).magnitude <= 1) {
 
-                //create rotation
-                Quaternion wantedRotation = nextPoint.transform.rotation;
+        //         //create rotation
+        //         Quaternion wantedRotation = nextPoint.transform.rotation;
     
-                //then rotate
-                transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.deltaTime * rotateSpeed);
+        //         //then rotate
+        //         transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.deltaTime * rotateSpeed);
             
-            //}
+        //     //}
+             // Move the object forward along its z axis 1 unit/second.
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
         
         }
 }

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     IEnumerator MoveCar()
     {
         while (!bombExploded) {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
             carManager.GetComponent<CarManager>().MoveToNextCheckpoint();
         }
     }
