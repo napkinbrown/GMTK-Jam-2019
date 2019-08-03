@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionScript : MonoBehaviour
+public class BombController : MonoBehaviour
 {
     public float radius = 5.0F;
     public float power = 10.0F;
@@ -38,6 +38,11 @@ public class ExplosionScript : MonoBehaviour
             if (rb != null)
                 rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
         }
+    }
+
+    public void onBombPickup()
+    {
+        Destroy(this.gameObject);
     }
 
 }

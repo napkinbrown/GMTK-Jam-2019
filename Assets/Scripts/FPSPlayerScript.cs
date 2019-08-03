@@ -2,13 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FPSPlayerScript : MonoBehaviour
 {
+    public UnityEvent pickedUpBombEvent;
+
     public Rigidbody rb;
     public GameObject pov;
     public GameObject bombProp;
     public GameObject bombThrowable;
+    public Camera camera;
 
     private bool holdingBomb = true;
 
@@ -22,6 +26,8 @@ public class FPSPlayerScript : MonoBehaviour
     public float bombThrowForce = 10.0F;
 
     public float tossMagnitude = 20.0F;
+
+    public float bombGrabLength = 5.0f;
 
     void Start()
     {
@@ -42,9 +48,8 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void InteractWithBomb()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("Click!");
             if (holdingBomb)
             {
                 ThrowBomb();
@@ -55,12 +60,6 @@ public class FPSPlayerScript : MonoBehaviour
             }
             
         }
-        // Click to set bomb on surface
-        // If it's close enough, it should be placed on the floor or attached to its side
-        // If it's not close enough, don't do anything
-        
-        // If bomb is clicked on, pick back up
-        throw new NotImplementedException();
     }
 
     private void ThrowBomb()
@@ -70,14 +69,28 @@ public class FPSPlayerScript : MonoBehaviour
         thrownBomb.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * bombThrowForce);
         thrownBomb.GetComponent<Rigidbody>().AddRelativeForce(tossVector);
 
+        pickedUpBombEvent.AddListener(thrownBomb.GetComponent<BombController>().onBombPickup);
+
         bombProp.SetActive(false);
         holdingBomb = false;
     }
 
-    private bool TryPickingUpBomb()
+    private void TryPickingUpBomb()
     {
-        throw new NotImplementedException();
-        //holdingBomb = true;
+        RaycastHit hitInfo;
+        Vector3 rayOrigin = camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+
+        Debug.DrawRay(rayOrigin, camera.transform.forward);
+        if (Physics.Raycast(rayOrigin, camera.transform.forward, out hitInfo, bombGrabLength))
+        {
+
+        }
+        if (hitInfo.collider != null && hitInfo.collider.gameObject.tag == "Bomb")
+        {
+            pickedUpBombEvent.Invoke();
+            bombProp.SetActive(true);
+            holdingBomb = true;
+        }
     }
 
     private void CheckPlayerMovement()
