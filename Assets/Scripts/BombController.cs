@@ -1,21 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BombController : MonoBehaviour
 {
+    public UnityEvent exploadEvent;
+
     public float radius = 5.0F;
     public float power = 10.0F;
-    private GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject gmObject = GameObject.FindGameObjectWithTag("GameManager");
-        if (gmObject != null)
-            gm = gmObject.GetComponent<GameManager>();
-        else
-            Debug.Log("Could not find game manager!");
+
     }
 
     // Update is called once per frame
@@ -28,7 +26,7 @@ public class BombController : MonoBehaviour
     }
 
     private void Explode() {
-        gm.bombExploded = true;
+        exploadEvent.Invoke();
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders)

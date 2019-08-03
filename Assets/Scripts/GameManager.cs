@@ -30,4 +30,9 @@ public class GameManager : MonoBehaviour
     public void onScoreEvent(GameObject gameObject) {
         Debug.Log(gameObject);
     }
+
+    public void onBombExploadEvent()
+    {
+        bombExploded = true; // Don't know if this is necessary?
+    }
 }

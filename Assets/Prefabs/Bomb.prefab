@@ -106,6 +106,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92e05084155a8948b768d1893ad9c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exploadEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5694086360072535580, guid: c98a0e56139e74dc696c0896aac37f88,
+          type: 3}
+        m_MethodName: onBombExploadEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   radius: 5
   power: 300
 --- !u!54 &5762627328359192350
