@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
+    public GameObject carManager;
     public int score;
     public Text scoreObject;
     public bool bombExploded;
@@ -17,7 +18,15 @@ public class GameManager : MonoBehaviour
         score = 0;
         bombExploded = false;
         //scoreObject = GetComponent<Text>();
-        
+        StartCoroutine(MoveCar());
+    }
+
+    IEnumerator MoveCar()
+    {
+        while (true) {
+            yield return new WaitForSeconds(5);
+            carManager.GetComponent<CarManager>().MoveToNextCheckpoint();
+        }
     }
 
     // Update is called once per frame
