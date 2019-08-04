@@ -11,24 +11,26 @@ public class ExplodeObjectScript : MonoBehaviour
     private GameManager gm;
     private GameObject parentTower;
     //public _UnityEventGameObject score;
-    public bool scored;
+    public bool scored, ready;
     // Start is called before the first frame update
     void Start()
     {
-        if(parentTower) 
-        {
-            parentTower = transform.parent.gameObject;
-        } else {
+        
+        
+        parentTower = transform.parent.gameObject;
+        if(!parentTower) 
             Debug.LogError("ParentTower not attached", this);
-        }
+        
         
         scored = false;
+        ready = false;
         //score.Invoke(this.gameObject);
         GameObject gmObject = GameObject.FindGameObjectWithTag("GameManager");
         if (gmObject != null)
             gm = gmObject.GetComponent<GameManager>();
         //else
             //Debug.Log("Could not find game manager!");
+        StartCoroutine(waitToScore());
         
     }
 
@@ -38,9 +40,15 @@ public class ExplodeObjectScript : MonoBehaviour
         
     }
 
+    IEnumerator waitToScore() {
+        yield return new WaitForSeconds(2);
+        ready = true;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
-        if (!scored && gm.bombExploded && collision.gameObject.name != "Player" && collision.gameObject.name != "Ground") {
+        bool esplode = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().bombExploded;
+        if (ready && !scored && collision.gameObject.name != "Player") {
             scored = true;
             Vector3 velocity = collision.relativeVelocity;
             if(velocity.magnitude > 2)
@@ -49,7 +57,7 @@ public class ExplodeObjectScript : MonoBehaviour
             parentTower.GetComponent<TowerScript>().blocksHit();
             //Debug.Log("Hit with velocity of " + velocity + ", score is " + gm.score);
         } else {
-            //Debug.Log("Hit by " + collision.);
+            //Debug.Log("Hit by " + collision.gameObject);
         }
     }
 }

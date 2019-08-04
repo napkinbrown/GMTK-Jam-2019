@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text objectiveText;
     public Text holyShitText;
+    //public Animation holyShitAnimator;
 
     public bool bombExploded;
 
@@ -23,22 +24,29 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         carManagers = GameObject.FindGameObjectsWithTag("CarManager");
         score = 0;
-        numLeft = 3;
+        numLeft = 10;
         bombExploded = false;
-        holyShitText.color = Color.clear;;
+        //holyShitAnimator.Play();
+        holyShitText.color = new Color(holyShitText.color.r, holyShitText.color.g, holyShitText.color.b, 0);
+        objectiveText.text = "" + numLeft-- + " buildings left";
     }
 
     // Update is called once per frame
     void Update()
     { 
-        if (scoreText)
-            scoreText.text = score.ToString();
+        scoreText.text = score.ToString();
 
     }
 
     public void BuildingDestroyed() {
-        objectiveText.text = "" + numLeft + "buildings left";
-        FadeTextToFullAlpha(1, holyShitText);
+        if (numLeft > 0) {
+            objectiveText.text = "" + numLeft-- + " buildings left";
+            StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
+        } else {
+            objectiveText.text = "Um... wow you're actually a terrorist, congratulations.";
+            holyShitText.text = "You won! Everyone's dead and it's all your fault!";
+            StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
+        }
     }
 
     public void onScoreEvent(GameObject gameObject) {
@@ -64,8 +72,8 @@ public class GameManager : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
             yield return null;
         }
-        yield return new WaitForSeconds(3);
-        FadeTextToZeroAlpha(t, i);
+        //yield return new WaitForSeconds(3);
+        StartCoroutine(FadeTextToZeroAlpha(t, i));
     }
  
     public IEnumerator FadeTextToZeroAlpha(float t, Text i)

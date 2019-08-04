@@ -45,8 +45,10 @@ public class CarManager : MonoBehaviour
         GameObject bomb = GameObject.FindGameObjectWithTag("Bomb");
         float dist = Vector3.Distance(bomb.transform.position, transform.GetChild(0).position);
         //Debug.Log("distance from bomb: " + dist);
-        if (explode && dist < 50)
+        if (explode && dist < 50) {
             carParts.GetComponent<CarPartsScript>().disableKinematics();
+            car.GetComponent<CarMoveScript>().isDestroyed = true;
+        }
         car.GetComponent<CarMoveScript>().exploded = true;
         //Debug.Log("Expldode@!!! Done");
     }
