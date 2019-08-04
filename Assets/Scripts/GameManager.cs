@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         if (timeLeft < 60) {
             timerText.GetComponent<TextMesh>().text = "0:" + ((int)timeLeft).ToString();
-            UICountdownText.text = ((int)timeLeft).ToString();
+            UICountdownText.text = "0:" + ((int)timeLeft).ToString();
         }
     }
 
