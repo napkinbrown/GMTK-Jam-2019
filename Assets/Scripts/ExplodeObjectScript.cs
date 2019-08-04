@@ -51,7 +51,7 @@ public class ExplodeObjectScript : MonoBehaviour
         if (ready && !scored && collision.gameObject.name != "Player") {
             scored = true;
             Vector3 velocity = collision.relativeVelocity;
-            if(velocity.magnitude > 2)
+            if(velocity.magnitude > 2) { }
                 gm.score += 10;
 
             parentTower.GetComponent<TowerScript>().blocksHit();
