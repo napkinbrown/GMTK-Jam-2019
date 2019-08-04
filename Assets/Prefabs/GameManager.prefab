@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44286ab429ad4125a6e3fae5257ac52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carManager: {fileID: 0}
   score: 0
-  scoreObject: {fileID: 0}
+  scoreText: {fileID: 0}
+  objectiveText: {fileID: 0}
+  holyShitText: {fileID: 0}
   bombExploded: 1
+  numLeft: 0

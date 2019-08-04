@@ -42,6 +42,8 @@ public class CarMoveScript : MonoBehaviour {
             yield return new WaitForSeconds(delay);
 
             ready = true;
+            exploded = false;
+            audioSource.Play();
 
         }
 
@@ -82,8 +84,9 @@ public class CarMoveScript : MonoBehaviour {
             if (nextPoint == null || exploded || !ready) {
                 if (exploded) {
                     audioSource.Stop();
+                    startDriving(6);
                 }
-                Debug.Log("Halting car movement");
+                //Debug.Log("Halting car movement");
                 return;
             }
             float step = speed * Time.deltaTime;

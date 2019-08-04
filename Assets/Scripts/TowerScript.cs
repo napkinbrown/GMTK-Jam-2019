@@ -35,12 +35,16 @@ public class TowerScript : MonoBehaviour
 
     public void blocksHit() {
         numHit++;
+        //REMOVE THIS LINE
+        gm.BuildingDestroyed();
         Debug.Log("Tower has lost " + numHit + " blocks.");
         if (numHit > 10)
             gm.score += 100;
         if (numHit > 20)
             gm.score += 200;
-        if (numHit > 30)
+        if (numHit > 30) {
             gm.score += 500;
+            gm.BuildingDestroyed();
+        }
     }
 }
