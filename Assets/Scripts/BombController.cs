@@ -7,7 +7,7 @@ public class BombController : MonoBehaviour
 {
     public UnityEvent exploadEvent;
 
-    public AudioSource explosionSound;
+    public GameObject bombExplosionSound;
 
     public bool hasExploaded = false;
 
@@ -32,7 +32,7 @@ public class BombController : MonoBehaviour
     private void Explode() {
         hasExploaded = true;
         exploadEvent.Invoke();
-        explosionSound.Play();
+        Instantiate(bombExplosionSound, this.transform.position, Quaternion.Euler(Vector3.zero));
          
 
         Vector3 explosionPos = transform.position;
