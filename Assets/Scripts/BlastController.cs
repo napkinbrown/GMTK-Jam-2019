@@ -8,7 +8,11 @@ public class BlastController : MonoBehaviour
     public List<ParticleSystem> blastParticles;
     public List<ParticleSystem> shockwaveParticles;
 
-    private List<ParticleSystem> toDestroy = new List<ParticleSystem>(); 
+    public float flashIntensity = 2.0f;
+    public float flashRange = 10.0f;
+    public float flashDimDropoff = 0.05f;
+
+    private List<ParticleSystem> toDestroy = new List<ParticleSystem>();
     private Vector3 blastOrigin;
 
     void Update()
@@ -26,6 +30,7 @@ public class BlastController : MonoBehaviour
     {
         this.blastOrigin = bombTransform.position;
         StartCoroutine(CreateExplosionCoroutine());
+        StartCoroutine(CreateExplosionLightFlash());
     }
 
     IEnumerator CreateExplosionCoroutine()
@@ -43,5 +48,23 @@ public class BlastController : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    IEnumerator CreateExplosionLightFlash()
+    {
+        GameObject lightGameObject = new GameObject("Explosion Flash");
+        Light flash = lightGameObject.AddComponent<Light>();
+        flash.type = LightType.Point;
+        flash.intensity = flashIntensity;
+        flash.range = flashRange;
+        flash.transform.position = blastOrigin;
+
+        while (flash.intensity > .05f)
+        {
+            yield return null;
+            flash.intensity = Mathf.Lerp(flash.intensity, 0, flashDimDropoff);
+        }
+
+        Destroy(lightGameObject);
     }
 }
