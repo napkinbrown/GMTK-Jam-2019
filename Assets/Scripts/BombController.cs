@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class BombController : MonoBehaviour
 {
     public UnityEvent exploadEvent;
-
     public AudioSource explosionSound;
 
     public bool hasExploaded = false;
@@ -33,7 +32,6 @@ public class BombController : MonoBehaviour
         hasExploaded = true;
         exploadEvent.Invoke();
         explosionSound.Play();
-         
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);

@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class FPSPlayerScript : MonoBehaviour
 {
     public UnityEvent pickedUpBombEvent;
+    public UnityEvent highlightBomb;
 
     public Rigidbody rb;
     public GameObject pov;
@@ -57,6 +58,7 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void InteractWithBomb()
     {
+        TryHighlightBomb();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (holdingBomb)
@@ -68,6 +70,17 @@ public class FPSPlayerScript : MonoBehaviour
                 TryPickingUpBomb();
             }
             
+        }
+    }
+
+    private void TryHighlightBomb()
+    {
+        Debug.Log("Trying...");
+        RaycastHit hit = HitScanForBomb();
+        if (hit.collider != null && hit.collider.gameObject.tag == "Bomb")
+        {
+            Debug.Log("Found!");
+            highlightBomb.Invoke();
         }
     }
 
@@ -88,20 +101,23 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void TryPickingUpBomb()
     {
-        RaycastHit hitInfo;
-        Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+        RaycastHit hitInfo = HitScanForBomb();
 
-        Debug.DrawRay(rayOrigin, playerCamera.transform.forward);
-        if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hitInfo, bombGrabLength))
-        {
-
-        }
         if (hitInfo.collider != null && hitInfo.collider.gameObject.tag == "Bomb")
         {
             pickedUpBombEvent.Invoke();
             bombProp.SetActive(true);
             holdingBomb = true;
         }
+    }
+
+    private RaycastHit HitScanForBomb()
+    {
+        Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+        Debug.DrawRay(rayOrigin, playerCamera.transform.forward);
+        RaycastHit hit;
+        Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, bombGrabLength);
+        return hit;
     }
 
     private void CheckPlayerMovement()
