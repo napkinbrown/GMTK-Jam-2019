@@ -138,7 +138,10 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity += this.transform.right * strafeSpeed;
+            if (Input.GetKey(KeyCode.W))
+                rb.velocity += this.transform.right * strafeSpeed;
+            else
+                rb.velocity = this.transform.right * strafeSpeed;
         }
     }
 
@@ -146,7 +149,10 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity += this.transform.right * strafeSpeed  * -1;
+            if(Input.GetKey(KeyCode.W))
+                rb.velocity += this.transform.right * strafeSpeed * -1;
+            else
+                rb.velocity = this.transform.right * strafeSpeed * -1;
         }
     }
 
@@ -165,11 +171,11 @@ public class FPSPlayerScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                rb.velocity = this.transform.forward * sprintSpeed;
+                rb.velocity = new Vector3(this.transform.forward.x * sprintSpeed, rb.velocity.y, this.transform.forward.z * sprintSpeed);
             }
             else
             {
-                rb.velocity = this.transform.forward * walkSpeed;
+                rb.velocity = new Vector3(this.transform.forward.x * walkSpeed, rb.velocity.y, this.transform.forward.z * walkSpeed);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class TowerScript : MonoBehaviour
     private GameManager gm;
     public List<GameObject> blocks;
     public int numHit, numBlocks;
+    private bool isDestroyed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,12 +41,21 @@ public class TowerScript : MonoBehaviour
         Debug.Log(this.gameObject + " has lost " + numHit + " blocks.");
         if (numHit > numBlocks / 3)
             gm.score += 100;
-        if (numHit > numBlocks / 2) {
+        if (numHit > numBlocks * .85) {
             gm.score += 200;
-            gm.BuildingDestroyed();
+            if(!isDestroyed)
+            {
+                MarkAsDestroyed();
+            }
         }
         if (numHit >= numBlocks) {
             gm.score += 500;
         }
+    }
+
+    private void MarkAsDestroyed()
+    {
+        gm.BuildingDestroyed();
+        isDestroyed = true;
     }
 }

@@ -104,8 +104,8 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   explosionSound: {fileID: 479277819}
   hasExploaded: 0
-  radius: 30
-  power: 700
+  radius: 20
+  power: 600
 --- !u!114 &5184283601271188488
 MonoBehaviour:
   m_ObjectHideFlags: 0
