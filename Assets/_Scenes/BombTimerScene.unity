@@ -8461,7 +8461,9 @@ PrefabInstance:
     - target: {fileID: 7818230381887686275, guid: 3ec744c58a61342e88781c9c7dac6e58,
         type: 3}
       propertyPath: m_Text
-      value: 60
+      value: '1:00
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 110563415, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
       propertyPath: m_Text
@@ -24451,6 +24453,11 @@ PrefabInstance:
     - target: {fileID: 5694086360072535580, guid: c98a0e56139e74dc696c0896aac37f88,
         type: 3}
       propertyPath: timerText
+      value: 
+      objectReference: {fileID: 10903109}
+    - target: {fileID: 5694086360072535580, guid: c98a0e56139e74dc696c0896aac37f88,
+        type: 3}
+      propertyPath: UICountdownText
       value: 
       objectReference: {fileID: 10903109}
     m_RemovedComponents: []
