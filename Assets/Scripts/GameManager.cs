@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
             timeLeft -= Time.deltaTime;
         else if (timeLeft <= 0 && numLeft > 0) {
             timeLeft = 0;
+            holyShitText.text = "You lost! I need some better mindless minions...";
             gameOver();
         } 
 
@@ -74,7 +75,6 @@ public class GameManager : MonoBehaviour
 
     public void gameOver() {
         gameIsOver = true;
-        holyShitText.text = "You lost! George Bush blew up more people than you did, sweaty.";
         StartCoroutine(FadeTextToFullAlpha(2, holyShitText));
         StartCoroutine(FadeTextToFullAlpha(2, restartText));
     }
@@ -121,6 +121,9 @@ public class GameManager : MonoBehaviour
 
     public void onPlayerHitEvent()
     {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = false;
+        GameObject.FindGameObjectWithTag("BlackCamera").GetComponent<Camera>().enabled = true;
+        holyShitText.text = "You died! It was for a noble cause, I guess.";
         gameOver();
     }
 

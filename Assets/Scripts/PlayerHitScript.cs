@@ -16,9 +16,9 @@ public class PlayerHitScript : MonoBehaviour
         if (collider.gameObject.tag == "Player" || collider.gameObject.tag == "Bomb")
             return;
 
-        float velocity = collider.gameObject.GetComponent<Rigidbody>().velocity.magnitude;
-        Debug.Log("Collision with player, " + velocity);
-        if (velocity > 2) {
+        float velocity = collider.gameObject.GetComponent<Rigidbody>().velocity.y;
+        Debug.Log("Collision with " + collider.gameObject + " " + velocity);
+        if (Mathf.Abs(velocity) > 2) {
             Debug.Log("Player hit and dead");
             transform.parent.GetComponent<Rigidbody>().freezeRotation = false;
             killedEvent.Invoke();
