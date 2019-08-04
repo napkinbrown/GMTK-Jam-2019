@@ -6,7 +6,7 @@ public class TowerScript : MonoBehaviour
 {
     private GameManager gm;
     public List<GameObject> blocks;
-    public int numHit;
+    public int numHit, numBlocks;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,7 @@ public class TowerScript : MonoBehaviour
                  blocks.Add(child.gameObject);
              }
          }
+         numBlocks = blocks.Count;
     }
 
     // Update is called once per frame
@@ -35,16 +36,15 @@ public class TowerScript : MonoBehaviour
 
     public void blocksHit() {
         numHit++;
-        //REMOVE THIS LINE
-        gm.BuildingDestroyed();
         Debug.Log("Tower has lost " + numHit + " blocks.");
-        if (numHit > 10)
+        if (numHit > numBlocks / 3)
             gm.score += 100;
-        if (numHit > 20)
+        if (numHit > numBlocks / 2) {
             gm.score += 200;
-        if (numHit > 30) {
-            gm.score += 500;
             gm.BuildingDestroyed();
+        }
+        if (numHit >= numBlocks) {
+            gm.score += 500;
         }
     }
 }

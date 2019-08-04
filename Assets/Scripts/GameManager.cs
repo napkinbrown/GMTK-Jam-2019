@@ -8,13 +8,15 @@ public class GameManager : MonoBehaviour
 
     private GameObject[] carManagers;
     public int score;
-    public Text scoreText;
+    public Text scoreText, timerText;
     public Text objectiveText;
     public Text holyShitText;
+    //public Animation holyShitAnimator;
 
-    public bool bombExploded;
+    public bool bombExploded, gameIsOver;
 
     public int numLeft;
+    private float timeLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -23,22 +25,52 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         carManagers = GameObject.FindGameObjectsWithTag("CarManager");
         score = 0;
-        numLeft = 3;
+        numLeft = 10;
+        timeLeft = 60;
         bombExploded = false;
-        holyShitText.color = Color.clear;;
+        gameIsOver = false;
+        //holyShitAnimator.Play();
+        holyShitText.color = new Color(holyShitText.color.r, holyShitText.color.g, holyShitText.color.b, 0);
+        objectiveText.text = "" + numLeft-- + " buildings left";
     }
 
     // Update is called once per frame
     void Update()
     { 
-        if (scoreText)
-            scoreText.text = score.ToString();
+        scoreText.text = score.ToString();
+
+        if (timeLeft > 0 && numLeft > 0)
+            timeLeft -= Time.deltaTime;
+        else if (timeLeft <= 0 && numLeft > 0) {
+            timeLeft = 0;
+            gameOver();
+        }
+        
+        timerText.text = ((int)timeLeft).ToString();
 
     }
 
+    public void gameOver() {
+        gameIsOver = true;
+        holyShitText.text = "You lost! George Bush blew up more people than you did, sweaty.";
+        StartCoroutine(FadeTextToFullAlpha(2, holyShitText));
+    }
+
     public void BuildingDestroyed() {
-        objectiveText.text = "" + numLeft + "buildings left";
-        FadeTextToFullAlpha(1, holyShitText);
+        if (gameIsOver)
+            return;
+        //make sure text resets to invisible so it doesn't get stuck
+        if (holyShitText.color.a > 0)
+            holyShitText.color = new Color(holyShitText.color.r, holyShitText.color.g, holyShitText.color.b, 0);
+        
+        if (numLeft > 0) {
+            objectiveText.text = "" + numLeft-- + " buildings left";
+            StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
+        } else {
+            objectiveText.text = "Um... wow you're actually a terrorist, congratulations.";
+            holyShitText.text = "You won! Everyone's dead and it's all your fault!";
+            StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
+        }
     }
 
     public void onScoreEvent(GameObject gameObject) {
@@ -64,8 +96,9 @@ public class GameManager : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
             yield return null;
         }
-        yield return new WaitForSeconds(3);
-        FadeTextToZeroAlpha(t, i);
+        //The game over text uses t to avoid removing the text display
+        if (t == 1)
+            StartCoroutine(FadeTextToZeroAlpha(t, i));
     }
  
     public IEnumerator FadeTextToZeroAlpha(float t, Text i)
