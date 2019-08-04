@@ -17,7 +17,7 @@ public class CarMoveScript : MonoBehaviour {
         private GameManager gameManager;
         private GameObject player;
         public bool exploded, ready;
-        //public AudioSource audioSource;
+        public AudioSource audioSource;
 
         void Start()
         {
@@ -80,6 +80,9 @@ public class CarMoveScript : MonoBehaviour {
                 return;
 
             if (nextPoint == null || exploded || !ready) {
+                if (exploded) {
+                    audioSource.Stop();
+                }
                 Debug.Log("Halting car movement");
                 return;
             }
