@@ -57,7 +57,7 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void InteractWithBomb()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (holdingBomb)
             {
@@ -73,6 +73,7 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void ThrowBomb()
     {
+        holdingBomb = false;
         Vector3 tossVector = tossMagnitude * Vector3.up;
         GameObject thrownBomb = Instantiate(bombThrowable, bombProp.transform.position, this.transform.rotation);
         thrownBomb.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * bombThrowForce);
@@ -82,7 +83,8 @@ public class FPSPlayerScript : MonoBehaviour
         thrownBomb.GetComponent<BombController>().exploadEvent.AddListener(playerCamera.GetComponent<BombCameraShake>().onExplosionEvent);
 
         bombProp.SetActive(false);
-        holdingBomb = false;
+        canPickUpBomb = false;
+
         StartCoroutine(DelayEnablePickupBomb());
     }
 
@@ -185,7 +187,6 @@ public class FPSPlayerScript : MonoBehaviour
 
     IEnumerator DelayEnablePickupBomb()
     {
-        canPickUpBomb = false;
         yield return new WaitForSeconds(pickUpBombDelay);
         canPickUpBomb = true;
     }
