@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         timerText = GameObject.FindGameObjectWithTag("Timer");
         carManagers = GameObject.FindGameObjectsWithTag("CarManager");
         score = 0;
-        numLeft = 15;
+        numLeft = 8;
         timeLeft = 60;
         bombExploded = false;
         gameIsOver = false;
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
             timeLeft -= Time.deltaTime;
         else if (timeLeft <= 0 && numLeft > 0) {
             timeLeft = 0;
-            holyShitText.text = "You lost! I need some better mindless minions...";
+            holyShitText.text = "You lost! I wish I had more than one bomb...";
             gameOver();
         } 
 
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
         } else {
             gameIsOver = true;
-            objectiveText.text = "Um... wow you're actually a terrorist, congratulations.";
+            objectiveText.text = "Um... wow you're terrible person, congratulations.";
             holyShitText.text = "You won! Everyone's dead and it's all your fault!";
             StartCoroutine(FadeTextToFullAlpha(2, holyShitText));
             StartCoroutine(FadeTextToFullAlpha(2, restartText));
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = false;
         GameObject.FindGameObjectWithTag("BlackCamera").GetComponent<Camera>().enabled = true;
-        holyShitText.text = "You died! It was for a noble cause, I guess.";
+        holyShitText.text = "You died! Don't get squished next time";
         gameOver();
     }
 

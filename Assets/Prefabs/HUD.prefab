@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 12 buildings left
+  m_Text: 8 buildings left
 --- !u!1 &215811673
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Destroy 12 buildings using the bomb!
+  m_Text: Destroy 8 buildings using the bomb!
 --- !u!1 &589900752
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: holy shit!!!
+  m_Text: Building Destroyed!
 --- !u!111 &589900756
 Animation:
   m_ObjectHideFlags: 0

@@ -160,13 +160,13 @@ public class FPSPlayerScript : MonoBehaviour
     private void ApplyYMouseRotation()
     {
         float ySwivelSpeed = yMouseSensitivity * Time.deltaTime * -1;
-        pov.transform.Rotate(Input.GetAxisRaw("Mouse Y") * ySwivelSpeed, 0, 0);
+        pov.transform.Rotate(Input.GetAxisRaw("Mouse Y") * ySwivelSpeed * Time.deltaTime, 0, 0);
     }
 
     private void ApplyXMouseRotation()
     {
         float xSwivelSpeed = xMouseSensitivity * Time.deltaTime;
-        this.transform.Rotate(0, Input.GetAxisRaw("Mouse X") * xSwivelSpeed, 0);
+        this.transform.Rotate(0, Input.GetAxisRaw("Mouse X") * xSwivelSpeed * Time.deltaTime, 0);
     }
 
     private void CheckRightStrafe()
