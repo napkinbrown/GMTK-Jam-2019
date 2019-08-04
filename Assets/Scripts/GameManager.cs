@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         } 
 
         if (timeLeft < 60) {
+            timerText = GameObject.FindGameObjectWithTag("Timer");
             timerText.GetComponent<TextMesh>().text = "0:" + ((int)timeLeft).ToString();
             UICountdownText.text = "0:" + ((int)timeLeft).ToString();
         }

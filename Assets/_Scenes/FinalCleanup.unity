@@ -7368,15 +7368,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 7818230381887686275, guid: 3ec744c58a61342e88781c9c7dac6e58,
-        type: 3}
-      propertyPath: m_Text
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 110563415, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_Text
-      value: 10 buildings left
-      objectReference: {fileID: 0}
     - target: {fileID: 7818230381870120799, guid: 3ec744c58a61342e88781c9c7dac6e58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7481,6 +7472,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818230381887686275, guid: 3ec744c58a61342e88781c9c7dac6e58,
+        type: 3}
+      propertyPath: m_Text
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 110563415, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
+      propertyPath: m_Text
+      value: 10 buildings left
       objectReference: {fileID: 0}
     - target: {fileID: 589900753, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -19845,12 +19845,7 @@ PrefabInstance:
       objectReference: {fileID: 589900754}
     - target: {fileID: 5694086360072535580, guid: c98a0e56139e74dc696c0896aac37f88,
         type: 3}
-      propertyPath: holyShitAnimator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5694086360072535580, guid: c98a0e56139e74dc696c0896aac37f88,
-        type: 3}
-      propertyPath: timerText
+      propertyPath: UICountdownText
       value: 
       objectReference: {fileID: 10903109}
     m_RemovedComponents: []
@@ -36657,11 +36652,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med) (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36716,6 +36706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
@@ -45822,11 +45817,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med)
-      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45881,6 +45871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
