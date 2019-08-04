@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         timerText = GameObject.FindGameObjectWithTag("Timer");
         carManagers = GameObject.FindGameObjectsWithTag("CarManager");
         score = 0;
-        numLeft = 10;
+        numLeft = 8;
         timeLeft = 60;
         bombExploded = false;
         gameIsOver = false;
