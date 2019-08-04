@@ -238,6 +238,8 @@ MonoBehaviour:
   tossMagnitude: 200
   bombGrabLength: 6
   pickUpBombDelay: 1
+  povRotationMin: -50
+  povRotationMax: 50
 --- !u!82 &859322017166709707
 AudioSource:
   m_ObjectHideFlags: 0

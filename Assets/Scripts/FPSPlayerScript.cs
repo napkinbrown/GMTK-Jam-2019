@@ -31,6 +31,8 @@ public class FPSPlayerScript : MonoBehaviour
 
     private bool canPickUpBomb = true, gameOver = false;
 
+    public float povRotationMin;
+    public float povRotationMax;
 
     void Start()
     {
@@ -56,8 +58,21 @@ public class FPSPlayerScript : MonoBehaviour
         }
 
         CheckPlayerMovement();
+        ClampMouseRotation();
         InteractWithBomb();
         StabilizePlayer();
+    }
+
+    private void ClampMouseRotation()
+    {
+        Quaternion rotation = pov.transform.localRotation;
+        float xRotation = rotation.eulerAngles.x;
+        if (xRotation >= 180)
+            xRotation -= 360;
+
+        float clampedX = Mathf.Clamp(xRotation, povRotationMin, povRotationMax);
+
+        pov.transform.localRotation = Quaternion.Euler(new Vector3(clampedX, 0, 0));
     }
 
     private void StabilizePlayer()
