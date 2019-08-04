@@ -12,13 +12,17 @@ public class PlayerHitScript : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter(Collision collision) {
-        Debug.Log("Collision with player, " + collision.relativeVelocity.magnitude);
-        if (collision.relativeVelocity.magnitude > 2) {
+    private void OnTriggerEnter(Collider collider) {
+        if (collider.gameObject.tag == "Player" || collider.gameObject.tag == "Bomb")
+            return;
+
+        float velocity = collider.gameObject.GetComponent<Rigidbody>().velocity.magnitude;
+        Debug.Log("Collision with player, " + velocity);
+        if (velocity > 2) {
             Debug.Log("Player hit and dead");
+            transform.parent.GetComponent<Rigidbody>().freezeRotation = false;
             killedEvent.Invoke();
         }
-        transform.parent.GetComponent<Rigidbody>().freezeRotation = false;
     }
 
 }

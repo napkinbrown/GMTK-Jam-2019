@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
+        if (gameIsOver) {
+            StartCoroutine(restartGame());
+            return;
+        }
+
         scoreText.text = score.ToString();
 
         if (timeLeft > 0 && numLeft > 0)
@@ -54,12 +59,17 @@ public class GameManager : MonoBehaviour
 
         if (timeLeft < 60) {
             timerText = GameObject.FindGameObjectWithTag("Timer");
-            timerText.GetComponent<TextMesh>().text = "0:" + ((int)timeLeft).ToString();
-            UICountdownText.text = "0:" + ((int)timeLeft).ToString();
+            
+            if (timeLeft < 10) {
+                timerText.GetComponent<TextMesh>().text = "0:0" + ((int)timeLeft).ToString();
+                UICountdownText.text = "0:0" + ((int)timeLeft).ToString();
+            }
+            else {
+                timerText.GetComponent<TextMesh>().text = "0:" + ((int)timeLeft).ToString();
+                UICountdownText.text = "0:" + ((int)timeLeft).ToString();
+            }
         }
 
-        if (gameIsOver)
-            StartCoroutine(restartGame());
     }
 
     public void gameOver() {

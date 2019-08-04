@@ -26660,7 +26660,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4776867309697606321}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1012624766
+--- !u!114 &1012624770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26669,9 +26669,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1012624765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918b7701b0d2b4956bd02ebb8224a20f, type: 3}
+  m_Script: {fileID: 11500000, guid: 422234a02b85642acba1a925f386742b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1013228558
 PrefabInstance:
   m_ObjectHideFlags: 0
