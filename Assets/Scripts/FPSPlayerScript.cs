@@ -138,7 +138,7 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = this.transform.right * strafeSpeed;
+            rb.velocity += this.transform.right * strafeSpeed;
         }
     }
 
@@ -146,7 +146,7 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = this.transform.right * strafeSpeed  * -1;
+            rb.velocity += this.transform.right * strafeSpeed  * -1;
         }
     }
 
