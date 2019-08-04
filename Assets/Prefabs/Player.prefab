@@ -236,6 +236,7 @@ MonoBehaviour:
   bombThrowForce: 150
   tossMagnitude: 200
   bombGrabLength: 6
+  pickUpBombDelay: 1
 --- !u!82 &859322017166709707
 AudioSource:
   m_ObjectHideFlags: 0
@@ -539,11 +540,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1284832817906403145}
     m_Modifications:
-    - target: {fileID: 4629347891588413888, guid: 859fc976a36507d4aa364c861d462474,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6cc20a2a703524062a79d18824249010, type: 3}
     - target: {fileID: 1423490336298856233, guid: 859fc976a36507d4aa364c861d462474,
         type: 3}
       propertyPath: m_Name
@@ -557,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 6513138864973928649, guid: 859fc976a36507d4aa364c861d462474,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.31000018
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6513138864973928649, guid: 859fc976a36507d4aa364c861d462474,
         type: 3}
