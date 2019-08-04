@@ -773,7 +773,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 81
+  Priority: 59
   DopplerLevel: 3.08
   MinDistance: 1
   MaxDistance: 5

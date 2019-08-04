@@ -13,6 +13,7 @@ TagManager:
   - Ground
   - Timer
   - BlackCamera
+  - Riff
   layers:
   - Default
   - TransparentFX

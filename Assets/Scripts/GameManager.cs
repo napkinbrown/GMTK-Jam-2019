@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
     public void BuildingDestroyed() {
         if (gameIsOver)
             return;
+
+        GameObject.FindGameObjectWithTag("Riff").GetComponent<AudioSource>().Play();
         //make sure text resets to invisible so it doesn't get stuck
         if (holyShitText.color.a > 0)
             holyShitText.color = new Color(holyShitText.color.r, holyShitText.color.g, holyShitText.color.b, 0);
