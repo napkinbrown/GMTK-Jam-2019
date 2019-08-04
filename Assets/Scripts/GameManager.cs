@@ -109,6 +109,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void onPlayerHitEvent()
+    {
+        gameOver();
+    }
+
     public IEnumerator FadeTextToFullAlpha(float t, Text i)
     {
         i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
