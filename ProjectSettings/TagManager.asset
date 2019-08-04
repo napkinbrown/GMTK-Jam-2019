@@ -11,6 +11,7 @@ TagManager:
   - CarManager
   - Car
   - Ground
+  - Timer
   layers:
   - Default
   - TransparentFX

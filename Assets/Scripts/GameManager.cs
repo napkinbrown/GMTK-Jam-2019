@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 
     private GameObject[] carManagers;
     public int score;
-    public Text scoreText, timerText;
+    public Text scoreText;
     public Text objectiveText;
-    public Text holyShitText;
+    public Text holyShitText, UICountdownText;
+    private GameObject timerText;
     //public Animation holyShitAnimator;
 
     public bool bombExploded, gameIsOver;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        timerText = GameObject.FindGameObjectWithTag("Timer");
         carManagers = GameObject.FindGameObjectsWithTag("CarManager");
         score = 0;
         numLeft = 10;
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
         //holyShitAnimator.Play();
         holyShitText.color = new Color(holyShitText.color.r, holyShitText.color.g, holyShitText.color.b, 0);
         objectiveText.text = "" + numLeft-- + " buildings left";
+        timerText.GetComponent<TextMesh>().text = "1:00";
+        UICountdownText.text = "1:00";
     }
 
     // Update is called once per frame
@@ -45,9 +49,11 @@ public class GameManager : MonoBehaviour
             timeLeft = 0;
             gameOver();
         }
-        
-        timerText.text = ((int)timeLeft).ToString();
 
+        if (timeLeft < 60) {
+            timerText.GetComponent<TextMesh>().text = "0:" + ((int)timeLeft).ToString();
+            UICountdownText.text = ((int)timeLeft).ToString();
+        }
     }
 
     public void gameOver() {
