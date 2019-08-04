@@ -36,7 +36,7 @@ public class TowerScript : MonoBehaviour
 
     public void blocksHit() {
         numHit++;
-        Debug.Log("Tower has lost " + numHit + " blocks.");
+        Debug.Log(this.gameObject + " has lost " + numHit + " blocks.");
         if (numHit > numBlocks / 3)
             gm.score += 100;
         if (numHit > numBlocks / 2) {

@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/PlayCityScene.unity
     guid: e215a0c6902514e0282fd41f3b336de0
+  - enabled: 1
+    path: Assets/AlmostThereScene.unity
+    guid: 559376961e551492eb27f31aa9936f9a
   m_configObjects: {}

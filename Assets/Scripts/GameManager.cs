@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         else if (timeLeft <= 0 && numLeft > 0) {
             timeLeft = 0;
             gameOver();
-        }
+        } 
 
         if (timeLeft < 60) {
             timerText.GetComponent<TextMesh>().text = "0:" + ((int)timeLeft).ToString();
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
             objectiveText.text = "" + numLeft-- + " buildings left";
             StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
         } else {
+            gameIsOver = true;
             objectiveText.text = "Um... wow you're actually a terrorist, congratulations.";
             holyShitText.text = "You won! Everyone's dead and it's all your fault!";
             StartCoroutine(FadeTextToFullAlpha(1, holyShitText));

@@ -13,6 +13,7 @@ public class FPSPlayerScript : MonoBehaviour
     public GameObject bombProp;
     public GameObject bombThrowable;
     public Camera playerCamera;
+    private GameManager gameManager;
 
     private bool holdingBomb = true;
 
@@ -28,12 +29,17 @@ public class FPSPlayerScript : MonoBehaviour
     public float bombGrabLength = 5.0f;
     public float pickUpBombDelay = 1.0f;
 
-    private bool canPickUpBomb = true;
+    private bool canPickUpBomb = true, gameOver = false;
 
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        GameObject gmObject = GameObject.FindGameObjectWithTag("GameManager");
+        if (gmObject != null)
+            gameManager = gmObject.GetComponent<GameManager>();
+        else
+            Debug.Log("Could not find game manager!");
 
         if(!rb) Debug.LogError("Could not find Rigidbody", this);
         if (!pov) Debug.LogError("Could not find POV", this);
@@ -42,6 +48,13 @@ public class FPSPlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        gameOver = gameManager.gameIsOver;
+        
+        if (gameOver) {
+            Debug.Log("Player thinks game is over");
+            return;
+        }
+
         CheckPlayerMovement();
         InteractWithBomb();
         StabilizePlayer();
@@ -57,7 +70,7 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void InteractWithBomb()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (holdingBomb)
             {
@@ -73,6 +86,7 @@ public class FPSPlayerScript : MonoBehaviour
 
     private void ThrowBomb()
     {
+        holdingBomb = false;
         Vector3 tossVector = tossMagnitude * Vector3.up;
         GameObject thrownBomb = Instantiate(bombThrowable, bombProp.transform.position, this.transform.rotation);
         thrownBomb.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * bombThrowForce);
@@ -82,7 +96,8 @@ public class FPSPlayerScript : MonoBehaviour
         thrownBomb.GetComponent<BombController>().exploadEvent.AddListener(playerCamera.GetComponent<BombCameraShake>().onExplosionEvent);
 
         bombProp.SetActive(false);
-        holdingBomb = false;
+        canPickUpBomb = false;
+
         StartCoroutine(DelayEnablePickupBomb());
     }
 
@@ -185,7 +200,6 @@ public class FPSPlayerScript : MonoBehaviour
 
     IEnumerator DelayEnablePickupBomb()
     {
-        canPickUpBomb = false;
         yield return new WaitForSeconds(pickUpBombDelay);
         canPickUpBomb = true;
     }
