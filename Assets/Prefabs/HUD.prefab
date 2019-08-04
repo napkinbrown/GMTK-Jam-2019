@@ -237,7 +237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: holy shit!!!
+  m_Text: Building Destroyed!
 --- !u!111 &589900756
 Animation:
   m_ObjectHideFlags: 0

@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/PlayCityScene.unity
     guid: e215a0c6902514e0282fd41f3b336de0
-  - enabled: 1
-    path: Assets/AlmostThereScene.unity
+  - enabled: 0
+    path: Assets/_Scenes/AlmostThereScene.unity
     guid: 559376961e551492eb27f31aa9936f9a
+  - enabled: 1
+    path: Assets/_Scenes/FinalCleanup.unity
+    guid: ced9fe65425932247896f2b8f9575c80
   m_configObjects: {}

@@ -13021,7 +13021,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 0.6528479, g: 0.8301887, b: 0.17621933, a: 1}
+  m_Color: {r: 0.91030115, g: 0.9433962, b: 0.8232467, a: 1}
   m_Intensity: 0.61
   m_Range: 10
   m_SpotAngle: 30
@@ -36884,6 +36884,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med) (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36938,11 +36943,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
@@ -46169,6 +46169,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med)
+      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46223,11 +46228,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
@@ -46348,6 +46348,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039912736, guid: ff2c54b44c559b4428314dc8e1a33235, type: 3}
+      propertyPath: xMouseSensitivity
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039912736, guid: ff2c54b44c559b4428314dc8e1a33235, type: 3}
+      propertyPath: yMouseSensitivity
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2c54b44c559b4428314dc8e1a33235, type: 3}
