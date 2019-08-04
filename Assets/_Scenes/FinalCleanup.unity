@@ -7458,47 +7458,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7818230381887686275, guid: 3ec744c58a61342e88781c9c7dac6e58,
-        type: 3}
-      propertyPath: m_Text
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 110563415, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_Text
-      value: 10 buildings left
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900753, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -9.784454
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900753, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 170.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900753, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 87.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900753, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900753, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -341.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900753, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900754, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 589900754, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
 --- !u!114 &319761749 stripped
@@ -12351,39 +12310,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586764742}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &589900752 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 589900752, guid: 3ec744c58a61342e88781c9c7dac6e58,
-    type: 3}
-  m_PrefabInstance: {fileID: 319761747}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &589900754 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 589900754, guid: 3ec744c58a61342e88781c9c7dac6e58,
     type: 3}
   m_PrefabInstance: {fileID: 319761747}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589900752}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!111 &589900756
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589900752}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 548754176c7e446ed953bf032b58af8a, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!4 &590562447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6301394851545416225, guid: a86953c33fd9e404ead028768010b00d,
@@ -15197,6 +15135,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2bba051cf5b6d43198982b3a2bd0b084, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a86953c33fd9e404ead028768010b00d, type: 3}
+--- !u!114 &725945903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1787867451, guid: 3ec744c58a61342e88781c9c7dac6e58,
+    type: 3}
+  m_PrefabInstance: {fileID: 319761747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &735111336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19803,6 +19753,11 @@ PrefabInstance:
       propertyPath: UICountdownText
       value: 
       objectReference: {fileID: 10903109}
+    - target: {fileID: 5694086360072535580, guid: c98a0e56139e74dc696c0896aac37f88,
+        type: 3}
+      propertyPath: restartText
+      value: 
+      objectReference: {fileID: 725945903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c98a0e56139e74dc696c0896aac37f88, type: 3}
 --- !u!1 &937985920
@@ -36574,6 +36529,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med) (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36628,11 +36588,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
@@ -45739,6 +45694,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med)
+      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45793,11 +45753,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
