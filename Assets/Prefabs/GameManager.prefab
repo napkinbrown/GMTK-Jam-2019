@@ -47,5 +47,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   objectiveText: {fileID: 0}
   holyShitText: {fileID: 0}
+  UICountdownText: {fileID: 0}
   bombExploded: 1
+  gameIsOver: 0
   numLeft: 0

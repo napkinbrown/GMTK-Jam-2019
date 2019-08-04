@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int score;
     public Text scoreText;
     public Text objectiveText;
-    public Text holyShitText, UICountdownText;
+    public Text holyShitText, UICountdownText, restartText;
     private GameObject timerText;
     //public Animation holyShitAnimator;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         gameIsOver = false;
         //holyShitAnimator.Play();
         holyShitText.color = new Color(holyShitText.color.r, holyShitText.color.g, holyShitText.color.b, 0);
+        restartText.color = new Color(holyShitText.color.r, holyShitText.color.g, holyShitText.color.b, 0);
         objectiveText.text = "" + numLeft-- + " buildings left";
         timerText.GetComponent<TextMesh>().text = "1:00";
         UICountdownText.text = "1:00";
@@ -48,18 +50,29 @@ public class GameManager : MonoBehaviour
         else if (timeLeft <= 0 && numLeft > 0) {
             timeLeft = 0;
             gameOver();
-        }
+        } 
 
         if (timeLeft < 60) {
+            timerText = GameObject.FindGameObjectWithTag("Timer");
             timerText.GetComponent<TextMesh>().text = "0:" + ((int)timeLeft).ToString();
-            UICountdownText.text = ((int)timeLeft).ToString();
+            UICountdownText.text = "0:" + ((int)timeLeft).ToString();
         }
+
+        if (gameIsOver)
+            StartCoroutine(restartGame());
     }
 
     public void gameOver() {
         gameIsOver = true;
         holyShitText.text = "You lost! George Bush blew up more people than you did, sweaty.";
         StartCoroutine(FadeTextToFullAlpha(2, holyShitText));
+        StartCoroutine(FadeTextToFullAlpha(2, restartText));
+    }
+
+    IEnumerator restartGame() {
+        yield return new WaitForSeconds(2);
+        if(Input.anyKeyDown)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name,  LoadSceneMode.Single);
     }
 
     public void BuildingDestroyed() {
@@ -73,9 +86,11 @@ public class GameManager : MonoBehaviour
             objectiveText.text = "" + numLeft-- + " buildings left";
             StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
         } else {
+            gameIsOver = true;
             objectiveText.text = "Um... wow you're actually a terrorist, congratulations.";
             holyShitText.text = "You won! Everyone's dead and it's all your fault!";
-            StartCoroutine(FadeTextToFullAlpha(1, holyShitText));
+            StartCoroutine(FadeTextToFullAlpha(2, holyShitText));
+            StartCoroutine(FadeTextToFullAlpha(2, restartText));
         }
     }
 

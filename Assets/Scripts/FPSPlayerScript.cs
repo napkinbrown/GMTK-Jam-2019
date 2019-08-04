@@ -13,6 +13,7 @@ public class FPSPlayerScript : MonoBehaviour
     public GameObject bombProp;
     public GameObject bombThrowable;
     public Camera playerCamera;
+    private GameManager gameManager;
 
     private bool holdingBomb = true;
 
@@ -28,12 +29,17 @@ public class FPSPlayerScript : MonoBehaviour
     public float bombGrabLength = 5.0f;
     public float pickUpBombDelay = 1.0f;
 
-    private bool canPickUpBomb = true;
+    private bool canPickUpBomb = true, gameOver = false;
 
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        GameObject gmObject = GameObject.FindGameObjectWithTag("GameManager");
+        if (gmObject != null)
+            gameManager = gmObject.GetComponent<GameManager>();
+        else
+            Debug.Log("Could not find game manager!");
 
         if(!rb) Debug.LogError("Could not find Rigidbody", this);
         if (!pov) Debug.LogError("Could not find POV", this);
@@ -42,6 +48,13 @@ public class FPSPlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        gameOver = gameManager.gameIsOver;
+        
+        if (gameOver) {
+            Debug.Log("Player thinks game is over");
+            return;
+        }
+
         CheckPlayerMovement();
         InteractWithBomb();
         StabilizePlayer();
