@@ -29,7 +29,7 @@ public class FPSPlayerScript : MonoBehaviour
     public float bombGrabLength = 5.0f;
     public float pickUpBombDelay = 1.0f;
 
-    private bool canPickUpBomb = true, gameOver = false;
+    private bool canPickUpBomb = true, gameOver = false, readyToThrow = true;
 
 
     void Start()
@@ -72,7 +72,7 @@ public class FPSPlayerScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (holdingBomb)
+            if (holdingBomb && readyToThrow)
             {
                 ThrowBomb();
             }
@@ -116,7 +116,14 @@ public class FPSPlayerScript : MonoBehaviour
             pickedUpBombEvent.Invoke();
             bombProp.SetActive(true);
             holdingBomb = true;
+            readyToThrow = false;
+            StartCoroutine(waitToThrow());
         }
+    }
+
+    IEnumerator waitToThrow() {
+        yield return new WaitForSeconds(1);
+        readyToThrow = true;
     }
 
     private void CheckPlayerMovement()

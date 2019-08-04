@@ -7458,6 +7458,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6925291590924594798, guid: 3ec744c58a61342e88781c9c7dac6e58,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -205
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925291590924594798, guid: 3ec744c58a61342e88781c9c7dac6e58,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 220
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ec744c58a61342e88781c9c7dac6e58, type: 3}
 --- !u!114 &319761749 stripped
@@ -36529,11 +36539,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med) (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36588,6 +36593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
@@ -45694,11 +45704,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070736494}
     m_Modifications:
-    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower (Med)
-      objectReference: {fileID: 0}
     - target: {fileID: 2675078145707926046, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45753,6 +45758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675078145707926045, guid: eed751991ea315e4c8f939dcfc588bfc,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower (Med)
       objectReference: {fileID: 0}
     - target: {fileID: 8245180922113810854, guid: eed751991ea315e4c8f939dcfc588bfc,
         type: 3}
@@ -45849,11 +45859,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2405277838970457053, guid: ff2c54b44c559b4428314dc8e1a33235,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6558189826498208465, guid: ff2c54b44c559b4428314dc8e1a33235,
         type: 3}
       propertyPath: killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1580629691}
+    - target: {fileID: 6135186137801453784, guid: ff2c54b44c559b4428314dc8e1a33235,
+        type: 3}
+      propertyPath: m_TagString
+      value: BlackCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135186137801453784, guid: ff2c54b44c559b4428314dc8e1a33235,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135186137801453792, guid: ff2c54b44c559b4428314dc8e1a33235,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2c54b44c559b4428314dc8e1a33235, type: 3}
 --- !u!1001 &8235755621505981638

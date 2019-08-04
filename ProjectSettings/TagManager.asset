@@ -12,6 +12,7 @@ TagManager:
   - Car
   - Ground
   - Timer
+  - BlackCamera
   layers:
   - Default
   - TransparentFX
